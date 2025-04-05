@@ -1,0 +1,151 @@
+.footer {
+  background: linear-gradient(135deg, #0a2b7c 0%, #0033a0 100%);
+  color: white;
+  padding: 3rem 2rem;
+  font-family: "Segoe UI", sans-serif;
+  margin-top: 50px;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.footer-box {
+  background: #fff;
+  color: blue;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  height: auto;
+  min-height: 120px;
+}
+
+.footer-box-text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.footer-links,
+.footer-socials,
+.footer-contact {
+  min-width: 150px;
+  margin-top: 1rem;
+}
+
+.footer-links h4,
+.footer-socials h4,
+.footer-contact h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.footer-links p,
+.footer-socials p,
+.footer-contact p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.footer-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-trust p {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.footer-trust span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f4c542;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #dcdcdc;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+}
+
+@media (max-width: 920px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-box {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .footer-trust {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-trust p,
+  .footer-trust span {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+
+  .footer-box-text {
+    font-size: 0.9rem;
+  }
+
+  .footer-links h4,
+  .footer-socials h4,
+  .footer-contact h4 {
+    font-size: 1rem;
+  }
+
+  .footer-links p,
+  .footer-socials p,
+  .footer-contact p {
+    font-size: 0.85rem;
+  }
+
+  .footer-logo {
+    font-size: 1.3rem;
+  }
+
+  .footer-trust p,
+  .footer-trust span {
+    font-size: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+  }
+}

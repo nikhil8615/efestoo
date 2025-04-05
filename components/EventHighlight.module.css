@@ -1,0 +1,85 @@
+.highlightContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff1c2;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.highlightLeft {
+  max-width: 600px;
+  flex: 1;
+}
+
+.highlightLeft h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.highlightLeft p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.highlightLeft button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.highlightLeft button:hover {
+  background-color: #0056b3;
+}
+
+.highlightRight {
+  flex: 1;
+  text-align: center;
+}
+
+.highlightRight img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .highlightContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .highlightLeft {
+    max-width: 100%;
+  }
+
+  .highlightLeft h2 {
+    font-size: 20px;
+  }
+
+  .highlightLeft p {
+    font-size: 14px;
+  }
+
+  .highlightLeft button {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+
+  .highlightRight {
+    margin-top: 20px;
+  }
+}

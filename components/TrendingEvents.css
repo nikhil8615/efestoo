@@ -1,0 +1,114 @@
+.trending-container {
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.trending-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.trending-slider-wrapper {
+  position: relative;
+}
+
+.trending-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+}
+
+.trending-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.event-card {
+  min-width: 300px;
+  background: linear-gradient(135deg, #302219 0%, #2e3853 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  color: #ffffff;
+}
+
+.event-card:hover {
+  transform: scale(1.03);
+}
+
+.event-info {
+  padding: 1rem;
+}
+
+.event-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.event-info p {
+  font-size: 0.95rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.event-btn {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.event-btn:hover {
+  background-color: #303f9f;
+  transform: translateY(-2px);
+}
+
+.event-btn:active {
+  transform: scale(0.98);
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 35%;
+  z-index: 10;
+  background: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.1);
+}
+
+.scroll-btn.left {
+  left: -10px;
+}
+
+.scroll-btn.right {
+  right: -10px;
+}
+
+@media (max-width: 768px) {
+  .event-card {
+    min-width: 260px;
+  }
+
+  .scroll-btn {
+    font-size: 1.5rem;
+  }
+}
