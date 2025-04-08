@@ -33,6 +33,11 @@ const eventData = [
     subtitle: "All-in-one event hosting made easy.",
     button: "Start now",
   },
+  {
+    title: "Host. Engage. Impress.",
+    subtitle: "All-in-one event hosting made easy.",
+    button: "Start now",
+  },
 ];
 
 const TrendingEvents = () => {
