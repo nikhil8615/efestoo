@@ -1,6 +1,7 @@
 // import React from "react";
 "use client";
 import React, { useContext, useState } from "react";
+import Calendar from "react-calendar";
 import Image from "next/image";
 
 import "./Profile.css";
@@ -14,6 +15,29 @@ import TrendingEvents from "./TrendingEvents";
 import Footer from "./Footer";
 
 const Profile = () => {
+  const events_upcoming = [
+    {
+      date: "18",
+      month: "April",
+      title: "IIT Hyderabad",
+      subtitle: "English vocabulary event",
+      desc: "Join the english club to learn about the infinite world of vocnite worl...",
+    },
+    {
+      date: "27",
+      month: "April",
+      title: "IIT Hyderabad",
+      subtitle: "English vocabulary event",
+      desc: "Join the english club to learn about the infinite world of vocnite worl...",
+    },
+    {
+      date: "18",
+      month: "April",
+      title: "IIT Hyderabad",
+      subtitle: "English vocabulary event",
+      desc: "Join the english club to learn about the infinite world of vocnite worl...",
+    },
+  ];
   const ticketData = [
     {
       ticketId: "#20D41ACOD",
@@ -57,6 +81,7 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState("Booked events");
   const [visibleTickets, setVisibleTickets] = useState(2);
   const events = [1, 2, 3, 4, 5];
+  const [date, setDate] = useState(new Date());
   const handleViewMore = () => {
     setVisibleTickets((prev) => prev + 2); // Show two more tickets on click
   };
@@ -422,43 +447,38 @@ const Profile = () => {
         );
       case "Whishlist":
         return (
-          <div className="wishlist">
-            <div className="wishlist_top">
-              <p>My Wishlist</p>
+          <div className="calendarEvents">
+            <div className="calendarSection">
+              <h3>Your calendar</h3>
+              <div className="calendarBox">
+                <Calendar
+                  onChange={setDate}
+                  value={date}
+                  tileClassName={({ date }) => {
+                    const day = date.getDate();
+                    return day === 18 || day === 27 ? "dotDay" : null;
+                  }}
+                />
+              </div>
             </div>
-            <div className="wishlist_bottom">
-              {/* {food_list.map((item, index) => {
-                if (cartItem[item._id] > 0) {
-                  return (
-                    <div className="wishlist_item1">
-                      <div className="slide" id="1">
-                        <div className="user_info">
-                          <img src={img2} alt="" />
-                          <p className="para1">24k solid gold, Diamond</p>
-                          <i className="fa-regular fa-heart xyz"></i>
-                        </div>
-                      </div>
-                      <div className="user_content">
-                        <h3>Diamond Solitaire Ring</h3>
-                        <p>
-                          Elegantly crafted Diamond Solitaire Ring that exudes
-                          timeless sophistication
-                        </p>
-                        <div className="price">
-                          <p>₹15,499</p>
-                          {!cartItem[1] ? (
-                            <button onClick={() => addTocart(1)}>
-                              <i className="fa-solid fa-plus"></i>
-                            </button>
-                          ) : (
-                            ""
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
-              })} */}
+
+            <div className="eventsSection">
+              <h3>Upcoming events</h3>
+              {events_upcoming.map((event, index) => (
+                <div className="eventCard" key={index}>
+                  <div className="eventDateBox">
+                    <span className="eventMonth">{event.month}</span>
+                    <span className="eventDate">{event.date}</span>
+                  </div>
+                  <div className="eventContent">
+                    <h4>{event.title}</h4>
+                    <p className="eventSubtitle">{event.subtitle}</p>
+                    <p className="eventDesc">
+                      {event.desc} <span className="eventView">view</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         );
