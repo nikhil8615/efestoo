@@ -243,16 +243,181 @@ const Profile = () => {
         );
       case "My Orders":
         return (
-          <div className="accoutss_bottom_right">
-            <div className="accountss_right_top myOrders">
-              <p>My Orders</p>
+          // <div className="accoutss_bottom_right">
+          //   <div className="accountss_right_top myOrders">
+          //     <p>My Orders</p>
+          //   </div>
+          //   {/* <MyOrder /> */}
+          //   {/* {selectedOrder ? (
+          //     <OrderDetails order={selectedOrder} onBack={handleBackToOrders} />
+          //   ) : (
+          //     <MyOrder onOrderClick={handleOrderClick} />
+          //   )} */}
+          // </div>
+          <div className="profile_information">
+            <div className="profile_information_top">
+              <img src="/Rectangle 165.png" alt="" />
+              <div className="profile_information_top_button">
+                <button>Change Cover</button>
+              </div>
             </div>
-            {/* <MyOrder /> */}
-            {/* {selectedOrder ? (
-              <OrderDetails order={selectedOrder} onBack={handleBackToOrders} />
-            ) : (
-              <MyOrder onOrderClick={handleOrderClick} />
-            )} */}
+            <div className="profile_information_bot">
+              <div className="profile-card">
+                <div className="profile-img-wrapper">
+                  <img
+                    src="/Ellipse 32.png"
+                    alt="Profile"
+                    className="profile-img"
+                  />
+                  <div className="camera-icon">📷</div>
+                </div>
+
+                <div className="profile-info">
+                  <h3>Durga Prasad</h3>
+                  <p>IIT Hyderabad</p>
+                </div>
+                <span className="border_bottom"></span>
+
+                <div className="countdown">
+                  <p>Next event in:</p>
+                  <div className="timer">
+                    <div>
+                      <h2>04</h2>
+                      <span>days</span>
+                    </div>
+                    <div>
+                      <h2>:12</h2>
+                      <span>hours</span>
+                    </div>
+                    <div>
+                      <h2>:6</h2>
+                      <span>min</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="stats">
+                  <div className="stat-row">
+                    <span>Events registered</span>
+                    <span className="stat-value">05</span>
+                  </div>
+                  <div className="stat-row">
+                    <span>Events attended</span>
+                    <span className="stat-value">03</span>
+                  </div>
+                  <div className="stat-row">
+                    <span>Wishlisted</span>
+                    <span className="stat-value">09</span>
+                  </div>
+                </div>
+              </div>
+              <div className="profile_card_information">
+                <div className="profile_card_information_personal">
+                  <div className="profile_card_information_personal_top">
+                    <h1>Personal Information</h1>
+                    <p>Edit</p>
+                  </div>
+                  <div className="profile_card_information_personal_bot">
+                    <form className="user-form">
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>
+                            First name <span className="required">*</span>
+                          </label>
+                          <input type="text" placeholder="Durgaprasad" />
+                        </div>
+                        <div className="form-group">
+                          <label>
+                            Last name <span className="required">*</span>
+                          </label>
+                          <input type="text" placeholder="Padakanty" />
+                        </div>
+                        <div className="form-group">
+                          <label>
+                            Age <span className="required">*</span>
+                          </label>
+                          <input type="number" placeholder="22" />
+                        </div>
+                      </div>
+
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>
+                            Email address (Entered while login){" "}
+                            <span className="required">*</span>
+                          </label>
+                          <input
+                            type="email"
+                            placeholder="Durgaprasad1234@gmail.com"
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>
+                            Phone no. <span className="required">*</span>
+                          </label>
+                          <input type="tel" placeholder="9392837553" />
+                        </div>
+                      </div>
+
+                      <div className="form-row">
+                        <div className="form-group">
+                          <label>
+                            City name <span className="required">*</span>
+                          </label>
+                          <input type="text" placeholder="Hyderabad" />
+                        </div>
+                        <div className="form-group">
+                          <label>
+                            Pincode <span className="required">*</span>
+                          </label>
+                          <input type="text" placeholder="500068" />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div className="profile_card_information_college">
+                  <div className="profile_card_information_college_top">
+                    <h1>College Info</h1>
+                    <p>Edit</p>
+                  </div>
+                  <div className="profile_card_information_college_bot">
+                    <form action="">
+                      <div className="formSection">
+                        <div className="formSection_top">
+                          <div className="fieldGroup">
+                            <label className="label" htmlFor="university">
+                              University name
+                            </label>
+                            <input
+                              className="input"
+                              type="text"
+                              id="university"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="formSection_bot">
+                          <div className="fieldGroup">
+                            <label className="label" htmlFor="course">
+                              Course name
+                            </label>
+                            <input className="input" type="text" id="course" />
+                          </div>
+
+                          <div className="fieldGroup">
+                            <label className="label" htmlFor="year">
+                              Year
+                            </label>
+                            <input className="input" type="text" id="year" />
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       case "Whishlist":
@@ -560,7 +725,7 @@ const Profile = () => {
         </div>
       </div>
       {/* <Footer /> */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

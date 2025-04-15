@@ -906,3 +906,261 @@
   font-weight: bold;
   cursor: pointer;
 }
+.profile_information {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+.profile_information_top {
+  width: 80vw;
+  margin: 0 auto;
+}
+.profile_information_bot {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  margin: 20px auto 0 auto;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.profile-card {
+  flex: 0 0 300px; /* fixed width for card */
+  max-width: 100%;
+}
+.profile_card_information {
+  flex: 1;
+  min-width: 300px;
+  position: absolute;
+  left: 320px;
+  top: 190px;
+}
+.profile_information_top_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  border-radius: 24px;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+}
+.profile-card {
+  width: 260px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+  text-align: center;
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+
+.profile-img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eaeaea;
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: 0;
+  right: 70px;
+  background-color: #4285f4;
+  color: white;
+  padding: 4px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-info {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+.profile-info h3 {
+  margin: 0.5rem 0 0.2rem;
+  font-weight: 600;
+}
+
+.profile-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.countdown {
+  margin-top: 1rem;
+}
+
+.countdown p {
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  color: #666;
+}
+
+.timer {
+  display: flex;
+  justify-content: space-around;
+  color: #4e83f4;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.timer div h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.timer div span {
+  font-size: 10px;
+  color: #999;
+}
+
+.stats {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: #4e83f4;
+}
+.profile_card_information_personal_top {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+
+  border-bottom: 1px solid #bebebe;
+}
+.profile_card_information_personal_top p {
+  color: #b3b3b3;
+}
+.profile_card_information_college_top {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  border-bottom: 1px solid #bebebe;
+}
+.profile_card_information_college_top p {
+  color: #b3b3b3;
+}
+.user-form {
+  padding: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: orange;
+  margin-left: 2px;
+}
+
+.form-group input {
+  padding: 8px 12px;
+  border: 1px solid #cdd6e0;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #4e83f4;
+  box-shadow: 0 0 0 2px rgba(78, 131, 244, 0.1);
+}
+.formSection {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  /* width: 40vw; */
+}
+.formSection_top {
+  width: 100%;
+}
+.formSection_bot {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.label::before {
+  content: "•";
+  color: orange;
+  margin-right: 5px;
+}
+
+.input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  /* width: 100%; */
+  background-color: #fff;
+  color: #333;
+  outline: none;
+}
+.formSection_bot input {
+  width: 400px;
+}
