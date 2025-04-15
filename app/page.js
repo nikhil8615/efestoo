@@ -8,9 +8,9 @@ import Profile from "../components/Profile";
 export default function Home() {
   return (
     <main>
-      {/* <TrendingEvents />
-      <EventHighlight />
-      <Testimonials /> */}
+      {/* <TrendingEvents /> */}
+      {/* <EventHighlight /> */}
+      {/* <Testimonials /> */}
       <Profile />
       {/* <Footer /> */}
     </main>

@@ -10,6 +10,8 @@ import img3 from "../public/Group209.png";
 import img4 from "../public/Group210.png";
 import img5 from "../public/Group211.png";
 import img6 from "../public/material-symbols_logout.png";
+import TrendingEvents from "./TrendingEvents";
+import Footer from "./Footer";
 
 const Profile = () => {
   const ticketData = [
@@ -54,6 +56,7 @@ const Profile = () => {
   const tabs = ["Booked events", "Wishlist", "Previous events"];
   const [activeTab, setActiveTab] = useState("Booked events");
   const [visibleTickets, setVisibleTickets] = useState(2);
+  const events = [1, 2, 3, 4, 5];
   const handleViewMore = () => {
     setVisibleTickets((prev) => prev + 2); // Show two more tickets on click
   };
@@ -204,11 +207,38 @@ const Profile = () => {
               </div>
               {visibleTickets < ticketData.length && (
                 <div className="view-more-button-container">
-                  <button onClick={handleViewMore}>View More</button>
+                  <button onClick={() => handleSectionClick("Whishlist")}>
+                    View More
+                  </button>
                 </div>
               )}
             </div>
-            <div className="profile_description_bot"></div>
+            <div className="profile_description_bot">
+              {/* <TrendingEvents /> */}
+              <div className="featured-container">
+                <h3 className="featured-heading">Featured Events</h3>
+                <div className="featured-scroll-wrapper">
+                  <div className="featured-scroll">
+                    {events.map((event, index) => (
+                      <div className="event-card" key={index}>
+                        <img
+                          src="/Event_image.png" // Replace with actual image
+                          alt="Event"
+                          className="event-image"
+                        />
+                        <div className="event-overlay">
+                          <h2>Bring your vision to life</h2>
+                          <p>
+                            create and manage extraordinary events effortlessly!
+                          </p>
+                          <button className="event-btn">Register now</button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       case "My Orders":
@@ -442,7 +472,14 @@ const Profile = () => {
                   onClick={() => handleSectionClick("Profile")}
                 >
                   <p>
-                    <img src="/Group207.png" alt="" />
+                    <img
+                      src={
+                        activeSection === "Profile"
+                          ? "/Group207.png"
+                          : "/Group207_selected.png"
+                      }
+                      alt=""
+                    />
                   </p>
                 </div>
                 <div
@@ -452,7 +489,14 @@ const Profile = () => {
                   onClick={() => handleSectionClick("My Orders")}
                 >
                   <p>
-                    <img src="/Group208.png" alt="" />
+                    <img
+                      src={
+                        activeSection === "My Orders"
+                          ? "/Group208_selected.png"
+                          : "/Group208.png"
+                      }
+                      alt=""
+                    />
                   </p>
                 </div>
                 <div
@@ -462,7 +506,14 @@ const Profile = () => {
                   onClick={() => handleSectionClick("Whishlist")}
                 >
                   <p>
-                    <img src="/Group209.png" alt="" />
+                    <img
+                      src={
+                        activeSection === "Whishlist"
+                          ? "/Group209_selected.png"
+                          : "/Group209.png"
+                      }
+                      alt=""
+                    />
                   </p>
                 </div>
                 <div
@@ -472,7 +523,14 @@ const Profile = () => {
                   onClick={() => handleSectionClick("Address Book")}
                 >
                   <p>
-                    <img src="/Group210.png" alt="" />
+                    <img
+                      src={
+                        activeSection === "Address Book"
+                          ? "/Group210_selected.png"
+                          : "/Group210.png"
+                      }
+                      alt=""
+                    />
                   </p>
                 </div>
                 <div
@@ -482,7 +540,14 @@ const Profile = () => {
                   onClick={() => handleSectionClick("Support")}
                 >
                   <p>
-                    <img src="/tabler_message-filled.png" alt="" />
+                    <img
+                      src={
+                        activeSection === "Support"
+                          ? "/Group211_selected.png"
+                          : "/Group211.png"
+                      }
+                      alt=""
+                    />
                   </p>
                 </div>
               </div>
@@ -495,6 +560,7 @@ const Profile = () => {
         </div>
       </div>
       {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
