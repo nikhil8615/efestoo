@@ -1294,3 +1294,141 @@ input:focus {
   margin-left: 5px;
   cursor: pointer;
 }
+.message-container {
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabs button.active {
+  background-color: black;
+  color: white;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.message-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.message-content {
+  flex-grow: 1;
+}
+
+.message-content h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.message-content p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.view-link {
+  color: #007bff;
+  font-weight: 500;
+  text-decoration: none;
+}
+.contact-form-wrapper {
+  width: 60vw;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.contact-form-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.contact-form-subtext {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row-top,
+.form-row-middle {
+  display: flex;
+  gap: 10px;
+}
+
+.input-fullname,
+.input-organization,
+.input-email,
+.input-phone,
+.input-event,
+.textarea-message {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-event {
+  width: 100%;
+}
+
+.textarea-message {
+  width: 100%;
+  resize: none;
+}
+
+.submit-btn {
+  width: 80px;
+  padding: 8px 12px;
+  background-color: #4e8df5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  align-self: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #376fd1;
+}
