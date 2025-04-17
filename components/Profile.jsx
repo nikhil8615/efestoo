@@ -3,14 +3,10 @@
 import React, { useContext, useState } from "react";
 import Calendar from "react-calendar";
 import Image from "next/image";
+import { FaBell } from "react-icons/fa";
 
 import "./Profile.css";
-import img1 from "../public/Group207.png";
-import img2 from "../public/Group208.png";
-import img3 from "../public/Group209.png";
-import img4 from "../public/Group210.png";
-import img5 from "../public/Group211.png";
-import img6 from "../public/material-symbols_logout.png";
+
 import TrendingEvents from "./TrendingEvents";
 import Footer from "./Footer";
 
@@ -31,7 +27,6 @@ const Profile = () => {
   const handleSubmitMessage = (e) => {
     e.preventDefault();
     console.log("Form Submitted:", formData);
-    // You can connect this to a backend API or service
   };
   const unreadMessages = [
     {
@@ -49,12 +44,37 @@ const Profile = () => {
       title: "2 days left for registration!!",
       text: "Join the english club to learn about the infinite world of vocabularies you can explore wi...",
     },
+    {
+      id: 3,
+      title: "2 days left for registration!!",
+      text: "Join the english club to learn about the infinite world of vocabularies you can explore wi...",
+    },
+    {
+      id: 3,
+      title: "2 days left for registration!!",
+      text: "Join the english club to learn about the infinite world of vocabularies you can explore wi...",
+    },
+    {
+      id: 3,
+      title: "2 days left for registration!!",
+      text: "Join the english club to learn about the infinite world of vocabularies you can explore wi...",
+    },
   ];
   const readMessages = [
     {
       id: 4,
       title: "Thanks for joining!",
       text: "We’re glad to have you in our English club. Stay tuned for upcoming activities.",
+    },
+    {
+      id: 5,
+      title: "Orientation Completed",
+      text: "Here's a recap of the session and materials you might need going forward.",
+    },
+    {
+      id: 5,
+      title: "Orientation Completed",
+      text: "Here's a recap of the session and materials you might need going forward.",
     },
     {
       id: 5,
@@ -113,28 +133,40 @@ const Profile = () => {
       stampImage: "/stamp.png",
       barCodeImage: "/barcode.png",
     },
-    // Add more tickets here
+  ];
+  const wishlistData = [
+    { name: "Photography Workshop", location: "Delhi", date: "May 10" },
+    { name: "Dance Battle", location: "Mumbai", date: "May 15" },
   ];
 
-  //   const { cartItem, addTocart, removeFromCart, removeAllFromCart, food_list } =
-  // useContext(StoreContext);
+  const clubs = [
+    {
+      title: "English vocabulary club",
+      description:
+        "Join the english club to learn about the inifinite world of vocabularies you can explore wi.....",
+      image: "/image_message.png", // Put this image in public folder
+    },
+    {
+      title: "English vocabulary club",
+      description:
+        "Join the english club to learn about the inifinite world of vocabularies you can explore wi.....",
+      image: "/image_message.png",
+    },
+  ];
+
   const [activeTabSlicer, setActiveTabSlicer] = useState("unread");
   const messages = activeTabSlicer === "unread" ? unreadMessages : readMessages;
   const [activeSection, setActiveSection] = useState("Profile");
   const [parentSection, setParentSection] = useState(null);
-  const [addresses, setAddresses] = useState([]);
-  const [newAddress, setNewAddress] = useState("");
+
   //   const [data, setData] = useState(accordian);
   const [selectedOrder, setSelectedOrder] = useState(null);
-  const tabs = ["Booked events", "Wishlist", "Previous events"];
-  const [activeTab, setActiveTab] = useState("Booked events");
+  const tabs = ["Booked Event", "Whishlist", "Previous Event"];
+  const [activeTab, setActiveTab] = useState("Booked Event");
   const [visibleTickets, setVisibleTickets] = useState(2);
 
   const events = [1, 2, 3, 4, 5];
   const [date, setDate] = useState(new Date());
-  const handleViewMore = () => {
-    setVisibleTickets((prev) => prev + 2); // Show two more tickets on click
-  };
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
@@ -144,62 +176,11 @@ const Profile = () => {
       setParentSection(null);
     }
   };
-  const handleOrderClick = (order) => {
-    setSelectedOrder(order);
-    setActiveSection("Order Details");
-  };
-
-  const handleBackToOrders = () => {
-    setSelectedOrder(null);
-    setActiveSection("My Orders");
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setAddresses([...addresses, newAddress]);
-    setNewAddress("");
-    handleSectionClick("Address Book");
-  };
-  const handleDelete = (index) => {
-    const updatedAddresses = addresses.filter((_, i) => i !== index);
-    setAddresses(updatedAddresses);
-  };
 
   const renderSection = () => {
     switch (activeSection) {
       case "Profile":
         return (
-          //   <div className="accoutss_bottom_right">
-          //     <div className="accountss_right_top">
-          //       <p>Profile</p>
-          //     </div>
-          //     <div className="accountss_right_med">
-          //       <div className="accountss_right_med_img">
-          //         {/* <img src={img1} alt="" /> */}
-          //       </div>
-          //       <div className="acountss_right_med_text">
-          //         <div className="acc_name">
-          //           <p>Full Name</p>
-          //           <span>: Akash Shukla</span>
-          //         </div>
-          //         <div className="acc_number">
-          //           <p>Phone Number</p>
-          //           <span>: 1234567890</span>
-          //         </div>
-          //       </div>
-          //     </div>
-          //     <div className="acountss_right_bottom_form">
-          //       <div className="accountss_bot_name">
-          //         <input type="text" placeholder="Full Name" />
-          //         <input type="text" placeholder="Email" />
-          //       </div>
-          //       <div className="accountss_bot_number">
-          //         <input type="number" placeholder="Mobile Number" />
-          //       </div>
-          //       <div className="bitnn">
-          //         <button>Update Profile</button>
-          //       </div>
-          //     </div>
-          //   </div>
           <div className="profile_description">
             <div className="profile_description_top">
               <div className="profile_description_top_top">
@@ -232,53 +213,99 @@ const Profile = () => {
                 </div>
               </div>
               <div className="profile_description_mid_bot">
-                {ticketData.slice(0, visibleTickets).map((ticket, index) => (
-                  <div key={index} className="ticketCard">
-                    <div className="leftSection">
-                      <Image
-                        src={ticket.backgroundImage}
-                        alt={`Background of the ticket with ${ticket.eventName}`}
-                        layout="fill"
-                        objectFit="cover"
-                      />
-                      <div className="ticketId">
-                        Ticket ID : {ticket.ticketId}
-                      </div>
-                      <div className="amountPaid">
-                        Amount Paid {ticket.amountPaid}
-                      </div>
-                    </div>
+                {activeTab === "Booked Event" && (
+                  <>
+                    {ticketData
+                      .slice(0, visibleTickets)
+                      .map((ticket, index) => (
+                        <div key={index} className="ticketCard">
+                          <div className="leftSection">
+                            <Image
+                              src={ticket.backgroundImage}
+                              alt={`Background of ${ticket.eventName}`}
+                              layout="fill"
+                              objectFit="cover"
+                            />
+                            <div className="ticketId">
+                              Ticket ID: {ticket.ticketId}
+                            </div>
+                            <div className="amountPaid">
+                              Amount Paid {ticket.amountPaid}
+                            </div>
+                          </div>
+                          <div className="rightSection">
+                            <div className="right_section_left">
+                              <div className="stampContainer">
+                                <Image
+                                  className="stampImage"
+                                  src={ticket.stampImage}
+                                  alt="Paid Stamp"
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
+                              </div>
+                              <div className="eventInfo">
+                                Event at {ticket.eventLocation}
+                                <br />
+                                {ticket.eventName}
+                              </div>
+                            </div>
+                            <div className="right_section_right">
+                              <div className="barCodeContainer">
+                                <Image
+                                  src={ticket.barCodeImage}
+                                  alt="Bar Code"
+                                  layout="fill"
+                                  objectFit="contain"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                  </>
+                )}
 
-                    <div className="rightSection">
-                      <div className="right_section_left">
-                        <div className="stampContainer">
-                          <Image
-                            className="stampImage"
-                            src={ticket.stampImage}
-                            alt="Paid Stamp"
-                            layout="fill"
-                            objectFit="contain"
-                          />
-                        </div>
-                        <div className="eventInfo">
-                          Event at {ticket.eventLocation}
-                          <br />
-                          {ticket.eventName}
-                        </div>
+                {activeTab === "Whishlist" && (
+                  <div className="wishlist-section">
+                    {wishlistData.map((item, i) => (
+                      <div key={i} className="wishlist-card">
+                        <h4>{item.name}</h4>
+                        <p>
+                          {item.location} | {item.date}
+                        </p>
                       </div>
-                      <div className="right_section_right">
-                        <div className="barCodeContainer">
-                          <Image
-                            src={ticket.barCodeImage}
-                            alt="Paid Stamp"
-                            layout="fill"
-                            objectFit="contain"
-                          />
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
-                ))}
+                )}
+
+                {activeTab === "Previous Event" && (
+                  <div className="clubs-container">
+                    {clubs.map((club, index) => (
+                      <div key={index} className="club-card">
+                        <div className="club-left">
+                          <Image
+                            src={club.image}
+                            alt="club"
+                            width={70}
+                            height={70}
+                          />
+                        </div>
+                        <div className="club-middle">
+                          <h3>{club.title}</h3>
+                          <p>{club.description}</p>
+                          <div className="club-buttons">
+                            <button className="rate-btn">Rate</button>
+                            <button className="review-btn">Review</button>
+                          </div>
+                        </div>
+                        <div className="club-right">
+                          <FaBell className="bell-icon" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
               {visibleTickets < ticketData.length && (
                 <div className="view-more-button-container">
@@ -318,17 +345,6 @@ const Profile = () => {
         );
       case "My Orders":
         return (
-          // <div className="accoutss_bottom_right">
-          //   <div className="accountss_right_top myOrders">
-          //     <p>My Orders</p>
-          //   </div>
-          //   {/* <MyOrder /> */}
-          //   {/* {selectedOrder ? (
-          //     <OrderDetails order={selectedOrder} onBack={handleBackToOrders} />
-          //   ) : (
-          //     <MyOrder onOrderClick={handleOrderClick} />
-          //   )} */}
-          // </div>
           <div className="profile_information">
             <div className="profile_information_top">
               <img src="/Rectangle 165.png" alt="" />
@@ -592,110 +608,6 @@ const Profile = () => {
                 </div>
               </div>
               <div className="profile_card_information">
-                {/* <div className="profile_card_information_personal">
-                  <div className="profile_card_information_personal_top">
-                    <h1>Personal Information</h1>
-                    <p>Edit</p>
-                  </div>
-                  <div className="profile_card_information_personal_bot">
-                    <form className="user-form">
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>
-                            First name <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="Durgaprasad" />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Last name <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="Padakanty" />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Age <span className="required">*</span>
-                          </label>
-                          <input type="number" placeholder="22" />
-                        </div>
-                      </div>
-
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>
-                            Email address (Entered while login){" "}
-                            <span className="required">*</span>
-                          </label>
-                          <input
-                            type="email"
-                            placeholder="Durgaprasad1234@gmail.com"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Phone no. <span className="required">*</span>
-                          </label>
-                          <input type="tel" placeholder="9392837553" />
-                        </div>
-                      </div>
-
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>
-                            City name <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="Hyderabad" />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Pincode <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="500068" />
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div className="profile_card_information_college">
-                  <div className="profile_card_information_college_top">
-                    <h1>College Info</h1>
-                    <p>Edit</p>
-                  </div>
-                  <div className="profile_card_information_college_bot">
-                    <form action="">
-                      <div className="formSection">
-                        <div className="formSection_top">
-                          <div className="fieldGroup">
-                            <label className="label" htmlFor="university">
-                              University name
-                            </label>
-                            <input
-                              className="input"
-                              type="text"
-                              id="university"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="formSection_bot">
-                          <div className="fieldGroup">
-                            <label className="label" htmlFor="course">
-                              Course name
-                            </label>
-                            <input className="input" type="text" id="course" />
-                          </div>
-
-                          <div className="fieldGroup">
-                            <label className="label" htmlFor="year">
-                              Year
-                            </label>
-                            <input className="input" type="text" id="year" />
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div> */}
                 <div className="message-container">
                   <div className="tabs">
                     <button
@@ -738,37 +650,6 @@ const Profile = () => {
 
       case "Support":
         return (
-          // <div className="accoutss_bottom_right">
-          //   <div className="accountss_right_top support">
-          //     <p>Suppport</p>
-          //   </div>
-          //   <div className="cart_med support_med">
-          //     <div className="address support_address">
-          //       <div className="address1">
-          //         <p>Shop Address</p>
-          //       </div>
-          //       <p className="fulladd">
-          //         Shivam Manjhi <br /> Indore, 23, Mahatma Gandhi Road, Near
-          //         Rajwada Place...
-          //       </p>
-          //       <div className="cart_num">
-          //         <p>Phone Number:</p>
-          //         <p>123456123</p>
-          //       </div>
-          //     </div>
-          //     <div className="add_button support_button">
-          //       <button>Request Call</button>
-          //     </div>
-          //   </div>
-          //   <div className="accounts_right_support_bot">
-          //     <p>Frequently Asked Question</p>
-          //     {/* <div className="accounts_accoridans">
-          //       {data.map((item, index) => {
-          //         return <Accordian key={item.id} {...item} />;
-          //       })}
-          //     </div> */}
-          //   </div>
-          // </div>
           <div className="profile_information">
             <div className="profile_information_top">
               <img src="/Rectangle 165.png" alt="" />
@@ -827,110 +708,6 @@ const Profile = () => {
                 </div>
               </div>
               <div className="profile_card_information">
-                {/* <div className="profile_card_information_personal">
-                  <div className="profile_card_information_personal_top">
-                    <h1>Personal Information</h1>
-                    <p>Edit</p>
-                  </div>
-                  <div className="profile_card_information_personal_bot">
-                    <form className="user-form">
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>
-                            First name <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="Durgaprasad" />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Last name <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="Padakanty" />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Age <span className="required">*</span>
-                          </label>
-                          <input type="number" placeholder="22" />
-                        </div>
-                      </div>
-
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>
-                            Email address (Entered while login){" "}
-                            <span className="required">*</span>
-                          </label>
-                          <input
-                            type="email"
-                            placeholder="Durgaprasad1234@gmail.com"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Phone no. <span className="required">*</span>
-                          </label>
-                          <input type="tel" placeholder="9392837553" />
-                        </div>
-                      </div>
-
-                      <div className="form-row">
-                        <div className="form-group">
-                          <label>
-                            City name <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="Hyderabad" />
-                        </div>
-                        <div className="form-group">
-                          <label>
-                            Pincode <span className="required">*</span>
-                          </label>
-                          <input type="text" placeholder="500068" />
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div className="profile_card_information_college">
-                  <div className="profile_card_information_college_top">
-                    <h1>College Info</h1>
-                    <p>Edit</p>
-                  </div>
-                  <div className="profile_card_information_college_bot">
-                    <form action="">
-                      <div className="formSection">
-                        <div className="formSection_top">
-                          <div className="fieldGroup">
-                            <label className="label" htmlFor="university">
-                              University name
-                            </label>
-                            <input
-                              className="input"
-                              type="text"
-                              id="university"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="formSection_bot">
-                          <div className="fieldGroup">
-                            <label className="label" htmlFor="course">
-                              Course name
-                            </label>
-                            <input className="input" type="text" id="course" />
-                          </div>
-
-                          <div className="fieldGroup">
-                            <label className="label" htmlFor="year">
-                              Year
-                            </label>
-                            <input className="input" type="text" id="year" />
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div> */}
                 <div className="contact-form-wrapper">
                   <h2 className="contact-form-heading">
                     Have an issue? Contact us
@@ -1122,7 +899,7 @@ const Profile = () => {
         </div>
       </div>
       {/* <Footer /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

@@ -912,30 +912,31 @@
   position: relative;
   /* padding: 20px; */
   box-sizing: border-box;
+  max-width: 80vw;
 }
 .profile_information_top {
   width: 80vw;
   margin: 0 auto;
 }
 .profile_information_bot {
-  position: absolute;
+  /* position: relative; */
   display: flex;
   justify-content: space-between;
   width: 80vw;
   margin: 20px auto 0 auto;
   gap: 20px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .profile-card {
-  flex: 0 0 300px; /* fixed width for card */
+  flex: 0 0 300px;
   max-width: 100%;
 }
 .profile_card_information {
   flex: 1;
-  min-width: 300px;
-  position: absolute;
+  max-width: 55vw;
+  position: relative;
   left: 320px;
-  top: 190px;
+  top: 10px;
 }
 .profile_information_top_button {
   position: absolute;
@@ -945,6 +946,7 @@
   border-radius: 24px;
   padding: 10px;
   border: 1px solid #d9d9d9;
+  /* width: 100px; */
 }
 .profile-card {
   width: 260px;
@@ -1431,4 +1433,57 @@ input:focus {
 
 .submit-btn:hover {
   background-color: #376fd1;
+}
+.clubs-container {
+  padding: 1rem;
+  width: 80vw;
+}
+
+.club-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.club-left img {
+  border-radius: 10px;
+}
+
+.club-middle {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.club-middle h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.club-middle p {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.club-buttons {
+  margin-top: 0.5rem;
+}
+
+.club-buttons button {
+  background-color: #407bff;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.bell-icon {
+  color: #407bff;
+  font-size: 1.5rem;
 }
