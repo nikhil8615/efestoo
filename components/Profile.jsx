@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import Calendar from "react-calendar";
 import Image from "next/image";
 import { FaBell } from "react-icons/fa";
+import { FaMapMarkerAlt, FaClock, FaRupeeSign, FaHeart } from "react-icons/fa";
 
 import "./Profile.css";
 
@@ -11,6 +12,73 @@ import TrendingEvents from "./TrendingEvents";
 import Footer from "./Footer";
 
 const Profile = () => {
+  const events_data = [
+    {
+      id: 1,
+      title: "Hackathon Xtreme",
+      price: 0,
+      date: "28th April",
+      location: "Virtual",
+      registerBy: "25 April",
+      image: "/image_event.png",
+    },
+    {
+      id: 4,
+      title: "Hackathon Xtreme",
+      price: 0,
+      date: "28th April",
+      location: "Virtual",
+      registerBy: "25 April",
+      image: "/image_event.png",
+    },
+    {
+      id: 5,
+      title: "Hackathon Xtreme",
+      price: 0,
+      date: "28th April",
+      location: "Virtual",
+      registerBy: "25 April",
+      image: "/image_event.png",
+    },
+    {
+      id: 6,
+      title: "Hackathon Xtreme",
+      price: 0,
+      date: "28th April",
+      location: "Virtual",
+      registerBy: "25 April",
+      image: "/image_event.png",
+    },
+    {
+      id: 7,
+      title: "Hackathon Xtreme",
+      price: 0,
+      date: "28th April",
+      location: "Virtual",
+      registerBy: "25 April",
+      image: "/image_event.png",
+    },
+    {
+      id: 8,
+      title: "Hackathon Xtreme",
+      price: 0,
+      date: "28th April",
+      location: "Virtual",
+      registerBy: "25 April",
+      image: "/image_event.png",
+    },
+    {
+      id: 9,
+      title: "Hackathon Xtreme",
+      price: 0,
+      date: "28th April",
+      location: "Virtual",
+      registerBy: "25 April",
+      image: "/image_event.png",
+    },
+    // Add more items as needed
+  ];
+
   const [formData, setFormData] = useState({
     fullName: "",
     organization: "",
@@ -164,6 +232,7 @@ const Profile = () => {
   const tabs = ["Booked Event", "Whishlist", "Previous Event"];
   const [activeTab, setActiveTab] = useState("Booked Event");
   const [visibleTickets, setVisibleTickets] = useState(2);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const events = [1, 2, 3, 4, 5];
   const [date, setDate] = useState(new Date());
@@ -268,14 +337,40 @@ const Profile = () => {
 
                 {activeTab === "Whishlist" && (
                   <div className="wishlist-section">
-                    {wishlistData.map((item, i) => (
-                      <div key={i} className="wishlist-card">
-                        <h4>{item.name}</h4>
-                        <p>
-                          {item.location} | {item.date}
-                        </p>
-                      </div>
-                    ))}
+                    <div className="scrollable-grid">
+                      {events_data.map((event) => (
+                        <div className="card" key={event.id}>
+                          <div className="card-image-container">
+                            <img
+                              src={event.image}
+                              alt={event.title}
+                              className="card-image"
+                            />
+                            <div className="event-date">{event.date}</div>
+                          </div>
+                          <div className="card-content">
+                            <div className="title">
+                              <h2 className="event-title">{event.title}</h2>
+                              <div className="event-price">
+                                <span>₹</span> {event.price}
+                              </div>
+                            </div>
+                            <div className="event-location">
+                              📍 {event.location}
+                            </div>
+                            <div className="event-deadline">
+                              ⏰ Register by: {event.deadline}
+                            </div>
+                            <div className="card-actions">
+                              <button className="register-button">
+                                Register
+                              </button>
+                              <span className="like-button">💙</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 
@@ -790,6 +885,8 @@ const Profile = () => {
             </div>
           </div>
         );
+      case "Message":
+        return <></>;
       default:
         return null;
     }
@@ -799,9 +896,14 @@ const Profile = () => {
     <>
       {/* <Navbar /> */}
       <div className="accountsas">
+        {/* <div className="hamburger-icon" onClick={toggleSidebar}>
+          {sidebarOpen ? "✖" : "☰"}
+        </div> */}
         <div className="accountss_bottom">
           <div className="acc_name_grid">
-            <div className="accountss_bottom_left">
+            <div
+              className={`accountss_bottom_left ${sidebarOpen ? "open" : ""}`}
+            >
               <div className="accounts_bottom_left_left">
                 <img src="/image1.png" className="profile_logo" alt="" />
                 <div
@@ -884,6 +986,23 @@ const Profile = () => {
                         activeSection === "Support"
                           ? "/Group211_selected.png"
                           : "/Group211.png"
+                      }
+                      alt=""
+                    />
+                  </p>
+                </div>
+                <div
+                  className={`accountss_left_profile ${
+                    activeSection === "Message" ? "active" : ""
+                  }`}
+                  onClick={() => handleSectionClick("Message")}
+                >
+                  <p>
+                    <img
+                      src={
+                        activeSection === "Message"
+                          ? "/Group212_selected.png"
+                          : "/Group212.png"
                       }
                       alt=""
                     />
