@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  justify-content: space-evenly; /* Pushes all content to the right */
+  align-items: center;
+  gap: 10rem;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  width: 95%;
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #ebebeb;
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.search-container input {
+  width: 30rem;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 6px;
+}
+
+.search-container svg {
+  color: #666;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+
+.navbar-right svg {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.create-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+}

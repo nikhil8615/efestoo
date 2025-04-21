@@ -4,6 +4,7 @@ import Testimonials from "../components/Testimonial";
 import TrendingEvents from "../components/TrendingEvents";
 // import Profile from "../components/Profile";
 import Profile from "../components/Profile";
+import Dashboard from "../components/Dashboard/Dashboard";
 
 export default function Home() {
   return (
@@ -11,7 +12,9 @@ export default function Home() {
       {/* <TrendingEvents /> */}
       {/* <EventHighlight /> */}
       {/* <Testimonials /> */}
-      <Profile />
+      {/* <Dashboard.jsx /> */}
+      <Dashboard />
+      {/* <Profile /> */}
       {/* <Footer /> */}
     </main>
   );

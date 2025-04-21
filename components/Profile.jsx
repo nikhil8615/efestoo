@@ -233,13 +233,24 @@ const Profile = () => {
   const [activeTab, setActiveTab] = useState("Booked Event");
   const [visibleTickets, setVisibleTickets] = useState(2);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showChatBox, setShowChatBox] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const handleSectionClick_message = (section) => {
+    if (section === "Message") {
+      setShowMessage(!showMessage); // Toggle message visibility
+    } else {
+      setActiveSection(section);
+      setShowMessage(false); // Hide message when switching to another section
+    }
+  };
 
   const events = [1, 2, 3, 4, 5];
   const [date, setDate] = useState(new Date());
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
-    if (section === "Address Book" || section === "Edit Address") {
+    if (section === "Address Book") {
       setParentSection("Address Book");
     } else {
       setParentSection(null);
@@ -922,6 +933,9 @@ const Profile = () => {
                       alt=""
                     />
                   </p>
+                  {showMessage && (
+                    <div className="message-box">Message Content Here</div>
+                  )}
                 </div>
                 <div
                   className={`accountss_left_profile ${
@@ -995,7 +1009,7 @@ const Profile = () => {
                   className={`accountss_left_profile ${
                     activeSection === "Message" ? "active" : ""
                   }`}
-                  onClick={() => handleSectionClick("Message")}
+                  onClick={() => handleSectionClick_message("Message")}
                 >
                   <p>
                     <img
