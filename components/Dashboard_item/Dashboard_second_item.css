@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 
-.card {
+.card_second {
   background-color: #eaf4ff;
   border-radius: 12px;
   padding: 25px;
@@ -18,14 +18,14 @@
   gap: 15px;
 }
 
-.card h3 {
+.card_second h3 {
   margin: 0;
   font-size: 18px;
   font-weight: bold;
   color: #111;
 }
 
-.card p {
+.card_second p {
   font-size: 14px;
   color: #333;
   margin: 0;
