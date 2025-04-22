@@ -1,0 +1,102 @@
+.dashboard-wrapper {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  font-family: sans-serif;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.tab-buttons button {
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.tab-buttons button.active {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 13px;
+  text-align: left;
+}
+
+.event-code {
+  color: #3b82f6;
+  font-size: 12px;
+}
+
+.status.completed {
+  color: #10b981;
+}
+.status.pending {
+  color: #6b7280;
+}
+.status.on-hold {
+  color: #ef4444;
+}
+
+.invoice.paid {
+  color: #10b981;
+}
+.invoice.pending {
+  color: #6b7280;
+}
+.invoice.generated {
+  color: #3b82f6;
+}
+
+.invoice-button {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+.view-all {
+  color: #3b82f6;
+  margin-top: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  gap: 6px;
+}
+
+.pagination button {
+  padding: 4px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  background: white;
+}
+
+.pagination button.active {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}

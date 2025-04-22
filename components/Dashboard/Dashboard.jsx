@@ -9,6 +9,9 @@ import Navbar from "../Navbar/Navbar";
 import Dashboard_first_item from "../Dashboard_item/Dashboard_first_item";
 import Dashboard_second_item from "../Dashboard_item/Dashboard_second_item";
 import Dashboard_third_item from "../Dashboard_item/Dashboard_third_item";
+// import DashboardFourthItem from "../Dashboard_item/Dashboard_fourth_item";
+import Dashboard_fourth_item from "../Dashboard_item/Dashboard_fourth_item";
+import Dashboard_fifth_item from "../Dashboard_item/Dashboard_fifth_item";
 // import { FaBell } from "react-icons/fa";
 // import { FaMapMarkerAlt, FaClock, FaRupeeSign, FaHeart } from "react-icons/fa";
 
@@ -75,7 +78,12 @@ const Dashboard = () => {
         return <div className="profile_information"></div>;
 
       case "Support":
-        return <div className="profile_information"></div>;
+        return (
+          <div className="profile_information">
+            <Dashboard_fourth_item />
+            <Dashboard_fifth_item />
+          </div>
+        );
       case "Message":
         return <></>;
       default:
@@ -178,8 +186,8 @@ const Dashboard = () => {
                     <img
                       src={
                         activeSection === "Support"
-                          ? "/Group211_selected.png"
-                          : "/Group211.png"
+                          ? "/Group_158_selected.png"
+                          : "/Group_158.png"
                       }
                       alt=""
                     />

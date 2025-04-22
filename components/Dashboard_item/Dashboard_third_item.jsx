@@ -7,11 +7,10 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   CartesianGrid,
 } from "recharts";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -33,81 +32,24 @@ const mockData = {
     { date: "Mar 7", Hackathon: 160, "Coding Jam": 140, "Quiz Bow": 95 },
   ],
   "User Engagement": [
-    { date: "Mar 1", users: 2300 },
-    { date: "Mar 3", users: 3200 },
+    { date: "Mar 1", users: 2000 },
+    { date: "Mar 3", users: 3000 },
     { date: "Mar 5", users: 1800 },
-    { date: "Mar 7", users: 3700 },
+    { date: "Mar 7", users: 3500 },
   ],
 };
 
 export default function Dashboard_third_item() {
   const [activeTab, setActiveTab] = useState("Events");
 
-  const resetGraph = () => {
-    setActiveTab("Events");
+  const headingText = {
+    Events: "1021 Impressions on this event 😊",
+    "Financial Reports": "₹2,50,000 Total revenue this quarter 💰",
+    "User Engagement": "+18.7% Compared to previous quarter 😊",
   };
 
-  const renderChart = () => {
-    if (activeTab === "User Engagement") {
-      return (
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={mockData["User Engagement"]}>
-            <defs>
-              <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#84b6f4" stopOpacity={0.6} />
-                <stop offset="95%" stopColor="#84b6f4" stopOpacity={0.1} />
-              </linearGradient>
-            </defs>
-            <XAxis dataKey="date" />
-            <YAxis />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Tooltip
-              content={({ active, payload, label }) =>
-                active && payload?.length ? (
-                  <div className="custom-tooltip">
-                    <p>{`Date: ${label}`}</p>
-                    <p>{`+${payload[0].value} Active Users`}</p>
-                  </div>
-                ) : null
-              }
-            />
-            <Line
-              type="monotone"
-              dataKey="users"
-              stroke="#3b82f6"
-              fillOpacity={1}
-              fill="url(#colorUsers)"
-              dot={{ stroke: "#3b82f6", strokeWidth: 2, r: 5 }}
-              activeDot={{ r: 7 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      );
-    }
-
-    const colors = {
-      Events: ["#84b6f4", "#a0c4ff", "#bdb2ff"],
-      "Financial Reports": ["#caffbf", "#9bf6ff", "#ffd6a5"],
-    };
-
-    const [c1, c2, c3] = colors[activeTab];
-
-    return (
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart
-          data={mockData[activeTab]}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-        >
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="Hackathon" stackId="a" fill={c1} />
-          <Bar dataKey="Coding Jam" stackId="a" fill={c2} />
-          <Bar dataKey="Quiz Bow" stackId="a" fill={c3} />
-        </BarChart>
-      </ResponsiveContainer>
-    );
+  const handleReset = () => {
+    setActiveTab("Events");
   };
 
   return (
@@ -139,21 +81,61 @@ export default function Dashboard_third_item() {
         </div>
       </div>
 
+      {/* Header + buttons row */}
       <div className="controls-row">
         <p className="impression-text">
-          <span className="impressions-count">+18.7%</span> Compared to previous
-          quarter 😊
+          <span className="heading-dynamic">{headingText[activeTab]}</span>
         </p>
 
         <div className="controls-buttons">
           <button className="view-details-btn">View details</button>
-          <button className="reset-btn" onClick={resetGraph} title="Reset">
+          <button className="reset-btn" title="Reset" onClick={handleReset}>
             <FontAwesomeIcon icon={faRotateRight} />
           </button>
         </div>
       </div>
 
-      <div className="analytics-graph">{renderChart()}</div>
+      <div className="analytics-graph">
+        <ResponsiveContainer width="100%" height={300}>
+          {activeTab === "User Engagement" ? (
+            <AreaChart
+              data={mockData["User Engagement"]}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#84b6f4" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#84b6f4" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <XAxis dataKey="date" />
+              <YAxis />
+              <CartesianGrid strokeDasharray="3 3" />
+              <Tooltip />
+              <Area
+                type="monotone"
+                dataKey="users"
+                stroke="#84b6f4"
+                fillOpacity={1}
+                fill="url(#colorUv)"
+              />
+            </AreaChart>
+          ) : (
+            <BarChart
+              data={mockData[activeTab]}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            >
+              <XAxis dataKey="date" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="Hackathon" stackId="a" fill="#84b6f4" />
+              <Bar dataKey="Coding Jam" stackId="a" fill="#a0c4ff" />
+              <Bar dataKey="Quiz Bow" stackId="a" fill="#bdb2ff" />
+            </BarChart>
+          )}
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }

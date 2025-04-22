@@ -1,0 +1,70 @@
+.bank-account-container {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  /* max-width: 900px; */
+  margin: auto;
+}
+
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.desc {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.add-link {
+  color: #2563eb;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.empty-state {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.bank-icon {
+  font-size: 64px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.primary-btn {
+  background-color: white;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.form-card {
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-card input {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.form-card .row {
+  display: flex;
+  gap: 12px;
+}
